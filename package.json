@@ -1,0 +1,20 @@
+{
+  "name": "juejin-auto-checkin",
+  "version": "1.0.0",
+  "description": "掘金自动签到,自动抽奖",
+  "main": "/src/index",
+  "scripts": {
+    "test": "node ./src/index"
+  },
+  "keywords": [
+    "掘金",
+    "签到",
+    "抽奖",
+    "自动"
+  ],
+  "author": "Orange",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
