@@ -3,9 +3,9 @@ on:
   schedule:
     # `分 时 天 月 周` 时按照标准时间 北京时间=标准时间+8 18表示北京时间早上2点
     # - cron: '0 18 * * *'
-    - cron: '50 6 * * *'
+    - cron: '28 7 * * *'
 jobs:
-  build:
+  check_in:
     runs-on: ubuntu-latest
     steps:
       # 使用 node:14
@@ -24,6 +24,6 @@ jobs:
       # 运行脚本
       - name: 运行脚本
         run: |
-          COOKIE='${{ secrets.COOKIE }}' node /src/index.js
+          COOKIE='${{ secrets.COOKIE }}' node ./src/index.js
         env:
           CI: true
