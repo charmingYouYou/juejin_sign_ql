@@ -4,7 +4,7 @@
   "description": "掘金每日自动签到，自动抽奖",
   "main": "./src/index",
   "scripts": {
-    "test": "node ./src/index"
+    "start": "node ./src/index"
   },
   "keywords": [
     "掘金",
