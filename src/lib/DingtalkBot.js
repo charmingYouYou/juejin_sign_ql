@@ -33,7 +33,7 @@ class DingtalkBot {
     if (!this.webhook || !this.secret) {
       p = Promise.resolve({
         errcode: -1,
-        errmsg: 'access_token和secret不能为空',
+        errmsg: 'webhook和secret不能为空',
       })
     } else {
       p = axios({
