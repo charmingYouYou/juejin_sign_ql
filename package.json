@@ -4,7 +4,8 @@
   "description": "掘金每日自动签到，自动抽奖",
   "main": "./src/index",
   "scripts": {
-    "start": "node ./src/index"
+    "start": "node ./src/index",
+    "test:bot": "node ./test/test-dingtalk-bot"
   },
   "keywords": [
     "掘金",

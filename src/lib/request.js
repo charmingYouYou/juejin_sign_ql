@@ -1,4 +1,5 @@
 const axios = require('axios')
+const message = require('./message')
 
 const defaultOptions = {
   method: 'GET',
@@ -14,12 +15,12 @@ module.exports = function request(options) {
         if (data.err_no === 0) {
           resolve(data.data)
         } else {
-          console.error(data.err_msg)
+          message(data.err_msg)
           reject(data)
         }
       })
       .catch((err) => {
-        console.error(err.message)
+        message(err.message)
         reject(err)
       })
   })
