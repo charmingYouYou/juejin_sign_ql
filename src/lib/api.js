@@ -13,7 +13,7 @@ module.exports = function (cookie) {
     },
     draw: function () {
       return request({
-        method: 'GET',
+        method: 'POST',
         url: 'https://api.juejin.cn/growth_api/v1/lottery/draw',
         headers: {
           cookie,

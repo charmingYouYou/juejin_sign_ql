@@ -5,7 +5,8 @@
   "main": "./src/index",
   "scripts": {
     "start": "node ./src/index",
-    "test:bot": "node ./test/test-dingtalk-bot"
+    "test:bot": "node ./test/test-dingtalk-bot",
+    "test:api": "node ./test/test-api"
   },
   "keywords": [
     "掘金",
