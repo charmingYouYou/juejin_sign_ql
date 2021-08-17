@@ -20,7 +20,11 @@
 
 ![get_cookie](./statics/imgs/get_cookie.png)
 
-5. 第二天查看是否已经签到成功，如果中实物奖品请尽量及时填写收货地址。
+5. 允许 Github Actions 工作流。
+
+![enable](./statics/imgs/enable.png)
+
+6. 第二天查看是否已经签到成功，如果中实物奖品请尽量及时填写收货地址。
 
 ### 抽奖时间修改
 
