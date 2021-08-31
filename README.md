@@ -30,6 +30,8 @@
 
 本程序默认是在北京时间凌晨 2 点去执行，如果需要修改签到时间，可以修改`.github/workflows/check_in.yml`文件中的`cron`字段，该字段文档可以[查看这里](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)。
 
+### 抽奖梭哈
+在 Github 的 Secrets 中在添加一个变量，Name 是`ALL_IN`，Value 是 `true`。
 ### 接入钉钉机器人
 
 抽奖结果可以在`掘金`和`Github Action`上查看，但是有的时候我们需要更加实时的查看中奖信息，这个时候考虑接入钉钉机器人，具体如下：

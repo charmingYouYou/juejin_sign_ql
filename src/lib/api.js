@@ -20,5 +20,14 @@ module.exports = function (cookie) {
         },
       })
     },
+    get_cur_point: function () {
+      return request({
+        method: 'GET',
+        url: 'https://api.juejin.cn/growth_api/v1/get_cur_point',
+        headers: {
+          cookie,
+        },
+      })
+    },
   }
 }
