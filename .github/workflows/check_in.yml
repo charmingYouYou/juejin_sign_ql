@@ -32,6 +32,6 @@ jobs:
       # 运行脚本
       - name: 运行脚本
         run: |
-          COOKIE='${{ secrets.COOKIE }}' DINGTALK_WEBHOOK='${{ secrets.DINGTALK_WEBHOOK }}' DINGTALK_SECRET='${{ secrets.DINGTALK_SECRET }}' npm start
+          COOKIE='${{ secrets.COOKIE }}' DINGTALK_WEBHOOK='${{ secrets.DINGTALK_WEBHOOK }}' DINGTALK_SECRET='${{ secrets.DINGTALK_SECRET }}' ALL_IN='${{ secrets.ALL_IN }}' npm start
         env:
           CI: true

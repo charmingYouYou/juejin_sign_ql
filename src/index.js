@@ -1,4 +1,4 @@
-const { COOKIE, all_in } = require('./lib/config')
+const { COOKIE, ALL_IN } = require('./lib/config')
 const message = require('./lib/message')
 
 if (!COOKIE) {
@@ -38,7 +38,7 @@ if (!COOKIE) {
 
   api.check_in().then(() => {
     message(`签到成功`)
-    if(all_in){
+    if(ALL_IN === 'true'){
       draw_all()
       return
     }
