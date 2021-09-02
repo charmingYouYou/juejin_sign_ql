@@ -1,5 +1,6 @@
 const axios = require('axios')
 const crypto = require('crypto')
+const dayjs = require('dayjs')
 
 const defaultOptions = {
   msgtype: 'text',
@@ -10,6 +11,8 @@ const defaultOptions = {
 
 class DingtalkBot {
   constructor(options = {}) {
+    this.text = ''
+
     this.webhook = options.webhook
     this.secret = options.secret
     const timestamp = new Date().getTime()
@@ -51,10 +54,22 @@ class DingtalkBot {
   }
 
   sendMessage(msg) {
-    return this.send({
-      msgtype: 'text',
-      text: { content: msg },
-    })
+    if(this.timer){
+      clearTimeout(this.timer)
+      this.timer = null
+    }
+    this.text += `- ${dayjs().format('HH:mm:ss')} ${msg}\n`
+    this.timer = setTimeout(() => {
+      this.send({
+        msgtype: 'markdown',
+        markdown: {
+          title: '掘金签到日志',
+          text: this.text,
+        }
+      }).then(() => {
+        this.text = ''
+      })
+    }, 1000)
   }
 }
 
