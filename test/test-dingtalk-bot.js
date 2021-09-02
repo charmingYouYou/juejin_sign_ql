@@ -5,6 +5,4 @@ const bot = new DingtalkBot({
   secret: '', // 请填写自己机器人加签的secret
 })
 
-bot.sendMessage('测试消息').then((res) => {
-  console.log(res)
-})
+bot.sendMessage('测试消息')
