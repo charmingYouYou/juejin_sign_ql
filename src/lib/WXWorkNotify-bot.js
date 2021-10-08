@@ -9,9 +9,9 @@ module.exports = function bot(message) {
   timer && clearTimeout(timer)
   timer = setTimeout(function(){
     WXWorkNotify({
-        id: config.WXCompanyId, // 企业 ID
-        agentId: config.WXAppId, // 应用 ID
-        secret: config.WXAppSecret, // 应用 secret
+        id: config.WX_COMPANY_ID, // 企业 ID
+        agentId: config.WX_APP_ID, // 应用 ID
+        secret: config.WX_APP_SECRET, // 应用 secret
         msgData: {
           msgtype: "text",
           text: {
