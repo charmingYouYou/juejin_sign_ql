@@ -42,7 +42,7 @@ function getToken({ id, secret }) {
 
 function send({ agentId, touser = "@all", msgData, accessToken }) {
   return new Promise((resolve, reject) => {
-    console.log(("发送企业微信通知...");
+    console.log("发送企业微信通知...");
     data = new TextEncoder().encode(
       JSON.stringify({
         touser,
@@ -73,7 +73,7 @@ function send({ agentId, touser = "@all", msgData, accessToken }) {
         if (result) {
           result = JSON.parse(result);
           if (result.errcode === 0) {
-            console.log(("发送通知成功");
+            console.log("发送通知成功");
             resolve();
           } else {
             reject(result.errmsg || "发送失败");
