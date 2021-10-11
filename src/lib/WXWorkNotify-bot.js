@@ -6,7 +6,7 @@ let timer = ''
 module.exports = function bot(message) {
   if(config.WX_COMPANY_ID && config.WX_APP_ID && config.WX_APP_SECRET) {
     
-    msg += message
+    msg += message + '\n';
 
     timer && clearTimeout(timer)
     timer = setTimeout(function(){
