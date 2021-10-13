@@ -66,7 +66,7 @@
 
 8. 返回钉钉完成即可，由于我们是凌晨签到的，如果害怕大半夜推送打扰到自己，可以把群设置成消息免打扰。
 
-### 接入微信/企业微信通知
+### 接入微信通知
 
 微信通知依赖于企业微信，通过企业微信向微信推送消息
 
@@ -87,15 +87,13 @@
 
 创建完成后进入应用详情页，可以得到应用ID( `agentid` )①，应用Secret( `secret` )②。
 
-注意：`secret`推送到手机端时，只能在`企业微信客户端`中查看。
 
 ![](https://theseven.ftqq.com/20210208143553.png)
 
 #### 第三步，获取企业ID
 
-进入「[我的企业](https://work.weixin.qq.com/wework_admin/frame#profile)」页面，拉到最下边，可以看到企业ID③，复制并填到上方。
+进入「[我的企业](https://work.weixin.qq.com/wework_admin/frame#profile)」页面，拉到最下边，可以得到企业ID③。
 
-推送UID直接填 `@all` ，推送给公司全员。
 
 #### 第四步，推送消息到微信
 
@@ -115,8 +113,8 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 
 在 Github 的 Secrets 中在添加三个变量：
 
-1.Name 是`WX_APP_ID`，Value 是第二步的 AgentId。
+1. Name 是`WX_APP_ID`，Value 是第二步的 AgentId。
 
-2.Name 是`WX_APP_SECRET`，Value 是第二步 Secret。
+2. Name 是`WX_APP_SECRET`，Value 是第二步 Secret。
 
-3.Name 是`WX_COMPANY_ID`，Value 是第三步的 企业ID。
+3. Name 是`WX_COMPANY_ID`，Value 是第三步的 企业ID。
