@@ -1,7 +1,7 @@
 const WXWorkNotify = require('./WXWorkNotify.js')
 const config = require('./config.js')
 
-let msg = ''
+let msg = '掘金：\n'
 let timer = ''
 module.exports = function bot(message) {
   if(config.WX_COMPANY_ID && config.WX_APP_ID && config.WX_APP_SECRET) {
