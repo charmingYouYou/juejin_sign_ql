@@ -2,7 +2,7 @@ name: 掘金自动签到
 on:
   schedule:
     # `分 时 天 月 周` 时按照标准时间 北京时间=标准时间+8 18表示北京时间早上2点
-    - cron: '0 2 * * *'
+    - cron: '0 18 * * *'
 jobs:
   check_in:
     runs-on: ubuntu-latest
