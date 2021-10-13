@@ -80,7 +80,7 @@
 
 ![](https://theseven.ftqq.com/20210208143228.png)
 
-应用名称填入「Server酱」，应用logo到[这里](./20210208142819.png)下载，可见范围选择公司名。
+应用名称随意填，可见范围选择公司名。
 
 
 ![](https://theseven.ftqq.com/20210208143327.png)
@@ -110,3 +110,13 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 
 2. 在企业微信客户端 「我」 → 「设置」  → 「新消息通知」中关闭 “仅在企业微信中接受消息” 限制条件
 ![](https://img.ams1.imgbed.xyz/2021/06/01/HPKPX.jpg)
+
+#### 第五步，在 github setting 添加变量
+
+在 Github 的 Secrets 中在添加三个变量：
+
+1.Name 是`WX_APP_ID`，Value 是第二步的 AgentId。
+
+2.Name 是`WX_APP_SECRET`，Value 是第二步 Secret。
+
+3.Name 是`WX_COMPANY_ID`，Value 是第三步的 企业ID。
