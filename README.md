@@ -118,3 +118,24 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 2. Name 是`WX_APP_SECRET`，Value 是第二步 Secret。
 
 3. Name 是`WX_COMPANY_ID`，Value 是第三步的 企业ID。
+
+### 接入飞书机器人
+
+飞书机器人通知依赖于飞书，通过飞书向指定群组推送消息，具体操作如下:
+
+1. 打开飞书，聊天列表顶部加号`创建群组`,群名称任意，点击创建
+![](./statics/imgs/feishu1.png)
+
+2. 进入群组，点击群组设置按钮添加机器人
+![](./statics/imgs/feishu2.png)
+
+3. 选择自定义机器人
+![](./statics/imgs/feishu3.png)
+
+4. 机器人名称和描述随意填写,点击下一步
+![](./statics/imgs/feishu4.png)
+
+5. 在`安全设置`中勾选`签名校验`,复制下webhook地址和签名校验内容，在 Github 的 Secrets 中在添加2个变量，Name 是`FEISHU_WEBHOOK`，Value 填写 webhook地址,Name 是`FEISHU_SECRET`，Value 填写的签名校验内容
+![](./statics/imgs/feishu5.png)
+![](./statics/imgs/feishu6.png)
+![](./statics/imgs/feishu7.png)

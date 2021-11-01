@@ -2,7 +2,7 @@ name: 掘金自动签到
 on:
   schedule:
     # `分 时 天 月 周` 时按照标准时间 北京时间=标准时间+8 18表示北京时间早上2点
-    - cron: '0 18 * * *'
+    - cron: "0 18 * * *"
 jobs:
   check_in:
     runs-on: ubuntu-latest
@@ -32,6 +32,6 @@ jobs:
       # 运行脚本
       - name: 运行脚本
         run: |
-          COOKIE='${{ secrets.COOKIE }}' DINGTALK_WEBHOOK='${{ secrets.DINGTALK_WEBHOOK }}' DINGTALK_SECRET='${{ secrets.DINGTALK_SECRET }}' ALL_IN='${{ secrets.ALL_IN }}' WX_COMPANY_ID='${{ secrets.WX_COMPANY_ID }}' WX_APP_ID='${{ secrets.WX_APP_ID }}' WX_APP_SECRET='${{ secrets.WX_APP_SECRET }}' npm start
+          COOKIE='${{ secrets.COOKIE }}' DINGTALK_WEBHOOK='${{ secrets.DINGTALK_WEBHOOK }}' DINGTALK_SECRET='${{ secrets.DINGTALK_SECRET }}' ALL_IN='${{ secrets.ALL_IN }}' WX_COMPANY_ID='${{ secrets.WX_COMPANY_ID }}' WX_APP_ID='${{ secrets.WX_APP_ID }}' WX_APP_SECRET='${{ secrets.WX_APP_SECRET }}' FEISHU_WEBHOOK='${{ secrets.FEISHU_WEBHOOK }}' FEISHU_SECRET='${{ secrets.FEISHU_SECRET }}' npm start
         env:
           CI: true
