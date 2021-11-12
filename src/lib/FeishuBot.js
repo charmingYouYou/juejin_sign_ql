@@ -8,17 +8,18 @@ class FeishuBot {
         this.text = ''
         this.webhook = options.webhook
         this.secret = options.secret
-        this.timestamp = new Date().getTime()
-        this.sign = this.signFn(this.secret, `${this.timestamp}\n${this.secret}`)
+        // 飞书官方文档描述不清楚，这里的 timestamp 应该精确到秒
+        this.timestamp = ~~(Date.now()/1000);
+        this.sign = this.signFn(`${this.timestamp}\n${this.secret}`)
     }
 
-    signFn(secret, content) {
+    signFn(content) {
         // 加签
         return crypto
-            .createHmac('sha256', secret)
-            .update(content)
+            // 加密一次即可
+            .createHmac('sha256', content)
             .digest()
-            .toString('base64')
+            .toString('base64');
     }
 
     send(data) {
