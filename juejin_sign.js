@@ -1,7 +1,20 @@
-/**
+/*
 掘金签到抽奖
-cron 11 0,9 * * * 掘金签到抽奖
+
+更新地址：https://github.com/charmingYouYou/juejin_sign_ql
+============Quantumultx===============
+[task_local]
+#掘金签到抽奖
+25 0,6-23 * * * https://github.com/charmingYouYou/juejin_sign_ql, tag=掘金签到抽奖,  enabled=true
+================Loon==============
+[Script]
+cron "25 0,6-23 * * *" script-path=https://github.com/charmingYouYou/juejin_sign_ql,tag=掘金签到抽奖
+===============Surge=================
+掘金签到抽奖 = type=cron,cronexp="25 0,6-23 * * *",wake-system=1,timeout=3600,script-path=https://github.com/charmingYouYou/juejin_sign_ql
+============小火箭=========
+掘金签到抽奖 = type=cron,script-path=https://github.com/charmingYouYou/juejin_sign_ql, cronexpr="25 0,6-23 * * *", timeout=3600, enable=true
 */
+const axios = require('axios')
 const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
 
