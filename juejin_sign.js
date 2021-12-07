@@ -1,7 +1,9 @@
 /**
- * [task_local]
- * #掘金签到抽奖
- * 23 1,12,22 * * * https://github.com/charmingYouYou/juejin_sign_ql.git, tag=掘金签到抽奖, enabled=true
+掘金签到抽奖
+
+[task_local]
+#掘金签到抽奖
+23 1,12,22 * * * https://github.com/charmingYouYou/juejin_sign_ql.git, tag=掘金签到抽奖, enabled=true
  */
 const { COOKIE, ALL_IN } = require('./src/lib/config')
 const message = require('./src/lib/message')

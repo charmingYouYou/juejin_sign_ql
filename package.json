@@ -2,9 +2,9 @@
   "name": "juejin_sign_ql",
   "version": "1.0.0",
   "description": "掘金每日自动签到，自动抽奖-青龙版",
-  "main": "./src/index",
+  "main": "./juejin_sign.js",
   "scripts": {
-    "start": "node ./src/index"
+    "start": "node ./juejin_sign.js"
   },
   "keywords": [
     "掘金",
