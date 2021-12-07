@@ -1,10 +1,15 @@
-const { COOKIE, ALL_IN } = require('./lib/config')
-const message = require('./lib/message')
+/**
+ * [task_local]
+ * #掘金签到抽奖
+ * 23 1,12,22 * * * https://github.com/charmingYouYou/juejin_sign_ql.git, tag=掘金签到抽奖, enabled=true
+ */
+const { COOKIE, ALL_IN } = require('./src/lib/config')
+const message = require('./src/lib/message')
 
 if (!COOKIE) {
   message('获取不到cookie，请检查设置')
 } else {
-  const api = require('./lib/api')(COOKIE)
+  const api = require('./src/lib/api')(COOKIE)
 
   // 获取可抽奖次数
   async function get_raw_time() {

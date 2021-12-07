@@ -1,18 +1,17 @@
 {
-  "name": "juejin-auto-checkin",
+  "name": "juejin_sign_ql",
   "version": "1.0.0",
-  "description": "掘金每日自动签到，自动抽奖",
+  "description": "掘金每日自动签到，自动抽奖-青龙版",
   "main": "./src/index",
   "scripts": {
-    "start": "node ./src/index",
-    "test:bot": "node ./test/test-dingtalk-bot",
-    "test:api": "node ./test/test-api"
+    "start": "node ./src/index"
   },
   "keywords": [
     "掘金",
     "签到",
     "抽奖",
-    "自动"
+    "自动",
+    "青龙"
   ],
   "author": "Orange",
   "license": "ISC",
