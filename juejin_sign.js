@@ -1,6 +1,6 @@
 /**
 掘金签到抽奖
-cron 11 0,9 * * * juejin_sign.js
+cron 11 0,9 * * * 掘金签到抽奖
 */
 const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
