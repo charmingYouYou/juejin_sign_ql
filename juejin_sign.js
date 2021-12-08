@@ -5,18 +5,24 @@
 ============Quantumultx===============
 [task_local]
 #掘金签到抽奖
-25 0,6-23 * * * https://github.com/charmingYouYou/juejin_sign_ql, tag=掘金签到抽奖,  enabled=true
+1 0 0 * * ?  https://github.com/charmingYouYou/juejin_sign_ql, tag=掘金签到抽奖,  enabled=true
 ================Loon==============
 [Script]
-cron "25 0,6-23 * * *" script-path=https://github.com/charmingYouYou/juejin_sign_ql,tag=掘金签到抽奖
+cron "1 0 0 * * ? " script-path=https://github.com/charmingYouYou/juejin_sign_ql,tag=掘金签到抽奖
 ===============Surge=================
-掘金签到抽奖 = type=cron,cronexp="25 0,6-23 * * *",wake-system=1,timeout=3600,script-path=https://github.com/charmingYouYou/juejin_sign_ql
+掘金签到抽奖 = type=cron,cronexp="1 0 0 * * ? ",wake-system=1,timeout=3600,script-path=https://github.com/charmingYouYou/juejin_sign_ql
 ============小火箭=========
-掘金签到抽奖 = type=cron,script-path=https://github.com/charmingYouYou/juejin_sign_ql, cronexpr="25 0,6-23 * * *", timeout=3600, enable=true
+掘金签到抽奖 = type=cron,script-path=https://github.com/charmingYouYou/juejin_sign_ql, cronexpr="1 0 0 * * ? ", timeout=3600, enable=true
 */
 const axios = require('axios')
+const sendNotify = require('./sendNotify.js')
 const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
+
+let msg = ''
+function sendNotifyFn(msg) {
+  sendNotify('掘金签到抽奖', msg)
+}
 
 const defaultOptions = {
   method: 'GET',
@@ -77,12 +83,12 @@ function request(options) {
         if (data.err_no === 0) {
           resolve(data.data)
         } else {
-          console.log(data.err_msg)
+          msg += `请求失败: ${data.err_msg} \n`
           reject(data)
         }
       })
       .catch((err) => {
-        console.log(err.message)
+        msg += `请求失败: ${err.message} \n`
         reject(err)
       })
   })
@@ -101,7 +107,7 @@ function assignOption(ops1, ops2) {
 
 function init() {
   if (!COOKIE) {
-    console.log('获取不到cookie，请检查设置')
+    sendNotifyFn('获取不到cookie，请检查设置')
   } else {
     const api = juejinApi(COOKIE)
 
@@ -114,16 +120,16 @@ function init() {
     // 抽奖一次
     async function draw() {
       const res = await api.draw()
-      console.log(`抽奖成功，获得：${res.lottery_name}`)
+      msg += `抽奖结果: 抽奖成功，获得：${res.lottery_name}\n`
       return res
     }
 
     // 抽所有
     async function draw_all() {
       const time = await get_raw_time()
-      console.log(`梭哈, 可抽奖次数${time}`)
+      msg += `抽奖梭哈: 可抽奖次数${time}\n`
       if (!time) {
-        console.log(`抽奖完成`)
+        msg += `抽奖梭哈: 抽奖完成\n`
       }
 
       for (let i = 0; i < time; i++) {
@@ -136,12 +142,13 @@ function init() {
     }
 
     api.check_in().then(() => {
-      console.log(`签到成功`)
+      msg += `签到结果: 签到成功 \n`
       if (ALL_IN === 'true') {
-        draw_all()
-        return
+        await draw_all()
+      } else {
+        await draw()
       }
-      draw()
+      sendNotifyFn(msg)
     })
   }
 }

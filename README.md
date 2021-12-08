@@ -8,6 +8,8 @@
   ql repo https://github.com/charmingYouYou/juejin_sign_ql.git
   ```
 
+- 在青龙依赖管理中安装依赖 axios
+
 - 青龙中环境变量配置
   ```
   JUEJIN_COOKIE // 掘金cookie (必填)
