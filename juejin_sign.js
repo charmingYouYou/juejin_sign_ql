@@ -15,7 +15,7 @@ cron "1 0 0 * * ? " script-path=https://github.com/charmingYouYou/juejin_sign_ql
 掘金签到抽奖 = type=cron,script-path=https://github.com/charmingYouYou/juejin_sign_ql, cronexpr="1 0 0 * * ? ", timeout=3600, enable=true
 */
 const axios = require('axios')
-const sendNotify = require('./sendNotify.js')
+const { sendNotify } = require('./sendNotify.js')
 const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
 
@@ -78,7 +78,7 @@ function juejinApi(cookie) {
 function request(options) {
   return new Promise((resolve, reject) => {
     axios(assignOption(defaultOptions, options))
-      .then((res) => {
+      .then(res => {
         let data = res.data || {}
         if (data.err_no === 0) {
           resolve(data.data)
@@ -87,7 +87,7 @@ function request(options) {
           reject(data)
         }
       })
-      .catch((err) => {
+      .catch(err => {
         msg += `请求失败: ${err.message} \n`
         reject(err)
       })
@@ -97,7 +97,7 @@ function request(options) {
 function assignOption(ops1, ops2) {
   let ops = Object.assign({}, ops1, ops2)
   let keys = Object.keys(ops1)
-  keys.forEach((item) => {
+  keys.forEach(item => {
     if (typeof ops1[item] === 'object' && !Array.isArray(ops1[item])) {
       ops[item] = Object.assign({}, ops1[item], ops2[item] || {})
     }
@@ -141,15 +141,20 @@ function init() {
       }
     }
 
-    api.check_in().then(async () => {
-      msg += `签到结果: 签到成功 \n`
-      if (ALL_IN === 'true') {
-        await draw_all()
-      } else {
-        await draw()
-      }
-      sendNotifyFn(msg)
-    })
+    api
+      .check_in()
+      .then(async () => {
+        msg += `签到结果: 签到成功 \n`
+        if (ALL_IN === 'true') {
+          await draw_all()
+        } else {
+          await draw()
+        }
+        sendNotifyFn(msg)
+      })
+      .catch(err => {
+        sendNotifyFn(err.err_msg)
+      })
   }
 }
 
