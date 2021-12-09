@@ -141,7 +141,7 @@ function init() {
       }
     }
 
-    api.check_in().then(() => {
+    api.check_in().then(async () => {
       msg += `签到结果: 签到成功 \n`
       if (ALL_IN === 'true') {
         await draw_all()
