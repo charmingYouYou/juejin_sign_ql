@@ -1,19 +1,8 @@
 /*
 掘金签到抽奖
-
-更新地址：https://github.com/charmingYouYou/juejin_sign_ql
-============Quantumultx===============
-[task_local]
-#掘金签到抽奖
-1 0 0 * * ?  https://github.com/charmingYouYou/juejin_sign_ql, tag=掘金签到抽奖,  enabled=true
-================Loon==============
-[Script]
-cron "1 0 0 * * ? " script-path=https://github.com/charmingYouYou/juejin_sign_ql,tag=掘金签到抽奖
-===============Surge=================
-掘金签到抽奖 = type=cron,cronexp="1 0 0 * * ? ",wake-system=1,timeout=3600,script-path=https://github.com/charmingYouYou/juejin_sign_ql
-============小火箭=========
-掘金签到抽奖 = type=cron,script-path=https://github.com/charmingYouYou/juejin_sign_ql, cronexpr="1 0 0 * * ? ", timeout=3600, enable=true
-*/
+https://github.com/charmingYouYou/juejin_sign_ql
+1 0 0 * * ? juejin_sign.js, tag=掘金签到抽奖, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+ */
 const axios = require('axios')
 const { sendNotify } = require('./sendNotify.js')
 const COOKIE = process.env.JUEJIN_COOKIE || ''
