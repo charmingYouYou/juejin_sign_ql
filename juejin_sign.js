@@ -1,7 +1,10 @@
 /*
 掘金签到抽奖
-https://github.com/charmingYouYou/juejin_sign_ql
-1 0 0 * * ? juejin_sign.js, tag=掘金签到抽奖, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+更新地址：https://github.com/charmingYouYou/juejin_sign_ql
+
+[task_local]
+#掘金签到抽奖
+1 1 0 * * * juejin_sign.js, tag=掘金签到抽奖, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
  */
 const axios = require('axios')
 const { sendNotify } = require('./sendNotify.js')
