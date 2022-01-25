@@ -9,9 +9,9 @@
 const axios = require('axios')
 const { sendNotify } = require('./sendNotify.js')
 const { autoGame } = require('./game/autoGame')
-const COOKIE = process.env.JUEJIN_COOKIE || 'ttcid=b2cc9ccc467649b9bf070db15039bb4f31; MONITOR_WEB_ID=8e072269-8670-4437-8fe4-ff90974b1d71; _ga=GA1.2.970417150.1643095547; _gid=GA1.2.1572800159.1643095547; __tea_cookie_tokens_2608=%257B%2522web_id%2522%253A%25227057041580923029004%2522%252C%2522ssid%2522%253A%252283d91e2d-6ed3-47cc-a46f-da540fde34cc%2522%252C%2522user_unique_id%2522%253A%25227057041580923029004%2522%252C%2522timestamp%2522%253A1643095546863%257D; s_v_web_id=verify_kytsny3l_O8WwT7kB_I9K1_4RoV_A98M_RELzQxNlqsI3; passport_csrf_token_default=f348a99ea66b809d898668aed56ef288; passport_csrf_token=f348a99ea66b809d898668aed56ef288; _tea_utm_cache_2018=undefined; passport_auth_status=d12fc02a60a4892045cce924cb62ba85%2C; passport_auth_status_ss=d12fc02a60a4892045cce924cb62ba85%2C; sid_guard=cfee0f3fa61501567e4f69a9bee9c566%7C1643095565%7C5184000%7CSat%2C+26-Mar-2022+07%3A26%3A05+GMT; uid_tt=d7df978be7cea15cb82902bc5db6c6c1; uid_tt_ss=d7df978be7cea15cb82902bc5db6c6c1; sid_tt=cfee0f3fa61501567e4f69a9bee9c566; sessionid=cfee0f3fa61501567e4f69a9bee9c566; sessionid_ss=cfee0f3fa61501567e4f69a9bee9c566; sid_ucp_v1=1.0.0-KDk4MjZiYjdmYzJkODc3YmFjMzc3MTE1NGYzZWMzNTcwODkxODA5YzMKFgi4wbC__fVNEI3Mvo8GGLAUOAJA8QcaAmxmIiBjZmVlMGYzZmE2MTUwMTU2N2U0ZjY5YTliZWU5YzU2Ng; ssid_ucp_v1=1.0.0-KDk4MjZiYjdmYzJkODc3YmFjMzc3MTE1NGYzZWMzNTcwODkxODA5YzMKFgi4wbC__fVNEI3Mvo8GGLAUOAJA8QcaAmxmIiBjZmVlMGYzZmE2MTUwMTU2N2U0ZjY5YTliZWU5YzU2Ng; n_mh=f5jGOUa3iVCHaPj5Am7e3wpNZUNOhRA-49IGic77hvo; _tea_utm_cache_2608={%22utm_medium%22:%22user_center%22%2C%22utm_campaign%22:%22hdjjgame%22}; tt_scid=tPjAcb6B3EvxhsH.1f22E3DN8RYDcfJVb9TGPKCokX6spUi.n1VpfXB1TE4VfRK7982c'
+const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
-const USER_ID = process.env.JUEJIN_USER_ID || '342703358091448'
+const USER_ID = process.env.JUEJIN_USER_ID || ''
 
 let msg = ''
 function sendNotifyFn(msg) {
