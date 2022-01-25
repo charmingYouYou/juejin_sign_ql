@@ -69,7 +69,6 @@ const autoGame = async (cookie, userId) => {
     const track = getTarck(mapData)
     exp.move(track).then(() => {
       exp.outGame().then(async res => {
-        console.log(res)
         console.log(
           `Game over, Reward: ${res.data.realDiamond}, Today reward: ${res.data.todayDiamond}, Today limit reward: ${res.data.todayLimitDiamond}`
         )

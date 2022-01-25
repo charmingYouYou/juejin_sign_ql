@@ -187,7 +187,6 @@ class Game {
   openGame = async () => {
     // 1.获取授权
     let res = await this.#getToken()
-    console.log(res)
     this.#authorization = 'Bearer ' + res.data
 
     // 2.获取用户名
