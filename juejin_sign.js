@@ -8,7 +8,7 @@
  */
 const axios = require('axios')
 const { sendNotify } = require('./sendNotify.js')
-const { autoGame } = require('./game/autoGame')
+const { autoGame } = require('./autoGame')
 const COOKIE = process.env.JUEJIN_COOKIE || ''
 const ALL_IN = process.env.JUEJIN_ALL_IN || ''
 const USER_ID = process.env.JUEJIN_USER_ID || ''
