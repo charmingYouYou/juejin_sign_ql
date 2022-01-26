@@ -4,9 +4,17 @@
 
 - 在青龙中执行
 
-  ```javascript
-  ql repo https://github.com/charmingYouYou/juejin_sign_ql.git "juejin" "icon" "game|autoGame"
-  ```
+  - github
+
+    ```shell
+    ql repo https://github.com/charmingYouYou/juejin_sign_ql.git "juejin" "icon" "game|autoGame"
+    ```
+
+  - gitee(若github源拉取失败, 可修改为国内gitee源)
+
+    ```shell
+    ql repo https://gitee.com/charmingyouyou/juejin_sign_ql.git "juejin" "icon" "game|autoGame"
+    ```
 
 - 在青龙依赖管理中安装依赖
 
@@ -14,6 +22,7 @@
   - jsonwebtoken
 
 - 青龙中环境变量配置
+
   ```javascript
   JUEJIN_COOKIE // 掘金cookie (必填)
   JUEJIN_ALL_IN // 是否全部抽奖 true/false (可选)
@@ -21,16 +30,9 @@
   ```
 
 ### 如何更新
+
 * 在青龙中定时任务添加一条任务
-
   * 名称: update_juejin_sign
-
-  * 命令:
-
-    ```javascript
-    ql repo https://github.com/charmingYouYou/juejin_sign_ql.git "juejin" "icon" "game|autoGame"
-    ```
-
+  * 命令: 同上方拉取命令相同`ql repo ...`
   * 定时规则: 0 0 * * 1
-
 * 保存后手动运行即可
