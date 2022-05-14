@@ -56,7 +56,7 @@ const getTarck = maps => {
 
 let runNum = 0
 let errorCalled = false // 报错后，尝试再次执行
-const autoGame = async (cookie, userId) => {
+const autoGame = async (cookie, userId, index) => {
   try {
     runNum++
     if (runNum > 500) return // 防止死循环
@@ -83,7 +83,7 @@ const autoGame = async (cookie, userId) => {
             autoGame(cookie, userId)
           }, 10000) // 设置10s执行一次，防止接口调用太过频繁，服务器报500的错
         } else {
-          sendNotify('掘金自动挖矿', `今日奖励已达上限！\n今日奖励: ${res.data.todayDiamond}, 今日上限: ${res.data.todayLimitDiamond}`)
+          sendNotify('掘金自动挖矿', `第${index}个用户\ncookie: ${cookie.slice(0, 10)}\nuserId: ${userId}\n今日奖励已达上限！\n今日奖励: ${res.data.todayDiamond}, 今日上限: ${res.data.todayLimitDiamond}`)
           console.log('今日奖励已达上限！')
         }
       })

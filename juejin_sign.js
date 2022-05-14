@@ -130,11 +130,15 @@ function assignOption(ops1, ops2) {
   return ops
 }
 
-async function init() {
-  if (!COOKIE) {
+async function init(cookie, userId, index) {
+  msg = ''
+  if (!cookie) {
     sendNotifyFn('获取不到cookie，请检查设置')
   } else {
-    const api = juejinApi(COOKIE)
+    msg += `第${index}个用户\n`
+    msg += `cookie: ${cookie.slice(0, 10)}\n`
+    msg += `userId: ${userId}\n`
+    const api = juejinApi(cookie)
 
     // 获取可抽奖次数
     async function get_raw_time() {
@@ -194,8 +198,8 @@ async function init() {
     } catch (error) {
       msg += `${error.err_msg}\n`
     }
-    if (USER_ID) {
-      autoGame(COOKIE, USER_ID)
+    if (userId) {
+      autoGame(cookie, userId, index)
       msg += '自动挖矿: 开始自动挖矿\n'
     } else {
       msg += '自动挖矿: 没有找到userId, 不执行挖矿游戏\n'
@@ -204,4 +208,41 @@ async function init() {
   }
 }
 
-init()
+const getProcessEnv = (key) => {
+  let res = []
+  if (process.env[key]) {
+    if (process.env[key].indexOf('&') > -1) {
+      res = process.env[key].split('&');
+    } else if (process.env[key].indexOf('\n') > -1) {
+      res = process.env[key].split('\n');
+    } else {
+      res = [process.env[key]];
+    }
+  }
+  return res
+}
+
+const getUserInfo = async () => {
+  const userInfo = []
+  const jjInfos = getProcessEnv('JUEJIN_INFO')
+  const cookies = getProcessEnv('JUEJIN_COOKIE')
+  const userIds = getProcessEnv('JUEJIN_USER_ID')
+  jjInfos.forEach(info => {
+    const [cookie, userId] = info.split('|=|')
+    userInfo.push({ cookie, userId })
+  })
+  cookies.forEach((c, i) => {
+    userInfo.push({
+      cookie: c,
+      userId: userIds[i] || ''
+    })
+  })
+  console.log(`=======================共${userInfo.length}个用户======================`)
+  for (let index in userInfo) {
+    const { cookie, userId } = userInfo[index]
+    console.log(`第${Number(index) + 1}用户, cookie: ${cookie.slice(0, 10)}, userId: ${userId}`)
+    await init(cookie, userId, Number(index) + 1)
+  }
+}
+
+getUserInfo()

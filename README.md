@@ -24,14 +24,24 @@
 - 青龙中环境变量配置
 
   ```javascript
-  JUEJIN_COOKIE // 掘金cookie (必填)
+  JUEJIN_COOKIE // 掘金cookie (与JUEJIN_INFO二选一必填)
+  JUEJIN_INFO // 掘金多用户配置(与JUEJIN_COOKIE二选一必填)
+  JUEJIN_USER_ID // 掘金用户userId (可选)
   JUEJIN_ALL_IN // 是否全部抽奖 true/false (可选)
-  JUEJIN_USER_ID // 掘金用户userId (可选, 自动玩游戏需要此参数，在掘金首页打开控制台输入这行代码`window.__NUXT__.state.auth.user.id`就可以得到)
   ```
- 
-- 推送通知环境变量(目前提供`微信server酱`、`pushplus(推送加)`、`iOS Bark APP`、`telegram机器人`、`钉钉机器人`、`企业微信机器人`、`iGot`等通知方式)
-  > 条件有限,目前仅自测企业微信应用消息推送正常,如有异常,请提issue
 
+  > Tips:
+  >
+  > 1. `JUEJIN_INFO`多用户配置与`JUEJIN_COOKIE`&`JUEJIN_USER_ID`单用户配置二选一即可
+  > 2. `JUEJIN_USER_ID`自动玩游戏需要此参数，在掘金首页打开控制台输入这行代码`window.__NUXT__.state.auth.user.id`就可以得到
+  > 3. `JUEJIN_INFO`配置规则为: cookie`|=|`userId, 多用户则在青龙配置多个同名`JUEJIN_INFO`环境变量即可
+  >    * 举例说明: 小明的cookie为xxxx, userId为yyyy; 那么环境变量的值填写为xxxx|=|yyyy
+  >    * 如果不需要挖矿玩游戏可不填写userId
+
+- 推送通知环境变量(目前提供`微信server酱`、`pushplus(推送加)`、`iOS Bark APP`、`telegram机器人`、`钉钉机器人`、`企业微信机器人`、`iGot`等通知方式)
+  
+  > 条件有限,目前仅自测企业微信应用消息推送正常,如有异常,请提issue
+  
   |       Name        |                             归属                             |  属性  | 说明                                                         |
   | :---------------: | :----------------------------------------------------------: | :----: | ------------------------------------------------------------ |
   |    `PUSH_KEY`     |                       微信server酱推送                       | 非必须 | server酱的微信通知[官方文档](http://sc.ftqq.com/3.version)，已兼容 [Server酱·Turbo版](https://sct.ftqq.com/)   |
